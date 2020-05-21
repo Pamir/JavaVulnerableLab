@@ -2,16 +2,9 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"extensions/v1beta1","kind":"Ingress","metadata":{"annotations":{"kubernetes.io/ingress.class":"azure/application-gateway"},"name":"web-ingress","namespace":"jvl"},"spec":{"rules":[{"http":{"paths":[{"backend":{"serviceName":"jvl","servicePort":8080},"path":"/*"}]}}]},"status":{"loadBalancer":{"ingress":[{"ip":"51.138.105.209"}]}}}
     kubernetes.io/ingress.class: azure/application-gateway
-  creationTimestamp: "2020-05-20T17:47:48Z"
-  generation: 3
   name: web-ingress
   namespace: jvl
-  resourceVersion: "3523724"
-  selfLink: /apis/extensions/v1beta1/namespaces/jvl/ingresses/web-ingress
-  uid: 0105cae3-36fc-4e0c-b998-686427719aec
 spec:
   rules:
   - http:
@@ -20,7 +13,3 @@ spec:
           serviceName: jvl
           servicePort: 8080
         path: /*
-status:
-  loadBalancer:
-    ingress:
-    - ip: 51.138.105.209
