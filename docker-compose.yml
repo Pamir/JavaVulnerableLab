@@ -1,11 +1,16 @@
-javavulnlab:
-  build: .
+version: '2'
+services:
+ vulnerable-mysql:  
+  image: mysql:5.7
+  container_name: vulnerable-mysql
   ports:
-    - 8080:8080
-  links: 
-    - mysql
-
-mysql:
-  image: mysql
+   - "3306:3306"
   environment:
-    - MYSQL_ROOT_PASSWORD=root
+   - MYSQL_ROOT_PASSWORD=root
+ vulnerable-tomcat:  
+  image: vulnerable-tomcat 
+  container_name: vulnerable-tomcat
+  depends_on:
+    - vulnerable-mysql
+  ports:
+    - "8080:8080"
