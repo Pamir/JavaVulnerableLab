@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: jvl
+  name: jvl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: jvl
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: jvl
+    spec:
+      containers:
+      - image: pamircontainerregistry.azurecr.io/jvm-vulnerable-lab:0.0.1
+        name: jvl
+        ports:
+          - name: http
+            containerPort: 8080
+            protocol: TCP
